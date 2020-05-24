@@ -22,14 +22,16 @@
 object Day01_SingleNumber {
 
   def main(args: Array[String]): Unit = {
+
     println(singleNumber(Array(4,1,2,1,2)))
     println(singleNumberByReduce(Array(4,1,2,1,2)))
     println(singleNumberByHashSet(Array(4,1,2,1,2)))
+    println(singleNumberByHashMap(Array(4,1,2,1,2)))
   }
 
   def singleNumber(nums: Array[Int]): Int = {
 
-    nums.groupBy(identity).mapValues(_.length).filter(t => t._2 <=1).keys.head
+    nums.groupBy(x=>x).mapValues(_.length).filter(t => t._2 <=1).keys.head
   }
 
   def singleNumberByReduce(nums:Array[Int]):Int ={
@@ -49,7 +51,23 @@ object Day01_SingleNumber {
         hashSet + currentValue
     }).head
 
+  }
 
+  def singleNumberByHashMap(nums:Array[Int]):Int ={
+    import scala.collection.immutable.HashMap
+
+
+    nums.foldLeft(HashMap.empty[Int,Int])(
+      (hashMap :HashMap[Int,Int],currentValue:Int) => {
+      if(hashMap.contains(currentValue))
+        hashMap - currentValue
+      else
+        hashMap + (currentValue -> 1)
+    }
+    ).keys.head
 
   }
+
+
+
 }
