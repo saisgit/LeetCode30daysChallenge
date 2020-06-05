@@ -12,7 +12,6 @@ object Day04_reverseString {
       s(i) = s(length - 1 - i)
       s(length - 1 - i) = temp
     }
-    // println(s.mkString(","))
   }
   def reverseString_tailRec(s: Array[Char]): Array[Char] = {
     type A = Char
