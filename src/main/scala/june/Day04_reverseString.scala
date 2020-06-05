@@ -1,10 +1,13 @@
 package june
 
+/**
+  * @see https://leetcode.com/explore/challenge/card/june-leetcoding-challenge/539/week-1-june-1st-june-7th/3350/
+  */
+
 object Day04_reverseString {
 
 
   def reverseString_Iterative(s: Array[Char]): Unit = {
-
     val length = s.length
 
     for (i <- 0 until length / 2) {
@@ -26,7 +29,9 @@ object Day04_reverseString {
   }
 
   def main(args: Array[String]): Unit = {
+
     reverseString_Iterative(Array('h','e','l','l','o'))
     reverseString_tailRec(Array('h','e','l','l','o'))
+
   }
 }
