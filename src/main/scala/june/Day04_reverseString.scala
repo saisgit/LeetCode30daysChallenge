@@ -27,6 +27,7 @@ object Day04_reverseString {
   }
 
   def main(args: Array[String]): Unit = {
+    reverseString_Iterative(Array('h','e','l','l','o'))
     reverseString_tailRec(Array('h','e','l','l','o'))
   }
 }
